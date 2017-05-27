@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: auto;
+    background: linear-gradient(#0099ff, #99d6ff);
+}
+
+div.gui {
+    position: fixed;
+}
+
+div.gui_elem {
+    position: fixed;
+}
