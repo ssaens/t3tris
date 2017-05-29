@@ -2,13 +2,13 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    height: 100%;
 }
 
 canvas {
     margin: 0;
     padding: 0;
     border: 0;
+    position: absolute;
 }
 
 html {
@@ -17,13 +17,72 @@ html {
 
 body {
     overflow: auto;
-    background: linear-gradient(#0099ff, #99d6ff);
+    height: 100%;
 }
 
 div.gui {
-    position: fixed;
+    margin: 20% auto;
+    position: relative;
+    transform: translateY(-50%);
+
+    background-color: rgba(226, 249, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px 0;
+    width: 400px;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 div.gui_elem {
-    position: fixed;
+    position: relative;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+div.gui_elem.node {
+    padding: 5px 0 20px 0;
+}
+
+#title {
+    border-bottom: 1px solid white;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+div.gui_elem.button {
+    background-color: rgba(160, 220, 255, 0.9);
+    transition: 0.2s ease-in-out;
+    border-bottom: 1px solid white;
+}
+
+div.gui_elem.button:first-child {
+    border-top: 1px solid white;
+}
+
+div.gui_elem.button:hover {
+    background: snow;
+}
+
+span.r {
+    color: red;
+}
+
+span.g {
+    color: green;
+}
+
+span.b {
+    color: blue;
+}
+
+span.y {
+    color: yellow;
+}
+
+span.p {
+    color: purple;
+}
+
+span.o {
+    color: orange;
 }
