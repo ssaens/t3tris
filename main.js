@@ -224,12 +224,12 @@ InputLogger.prototype = {
 function Camera() {
     this.world_up = vec3.fromValues(0, 1, 0);
 
-    this.pos = vec3.fromValues(15, 10, 15);
+    this.pos = vec3.fromValues(17, 11, 17);
     this.front = vec3.normalize(vec3.create(), vec3.fromValues(-1, -0.5, -1));
     this.up = vec3.create();
     this.right = vec3.create();
 
-    this.fov = 45;
+    this.fov = Math.PI / 4;
     this.ar = 1;
     this.n_clip = 0.1;
     this.f_clip = 100;
@@ -988,6 +988,8 @@ GameState.prototype = Object.assign(Object.create(State.prototype), {
         let proj = this.camera.get_projection();
         this.piece_shader.use();
         this.piece_shader.bind_projection(proj);
+        this.cage_shader.use();
+        this.cage_shader.bind_projection(proj);
     },
 
 });
@@ -1303,7 +1305,7 @@ var cube_f_shader =
     '' +
     'void main() {' +
     '   vec3 light_color = vec3(1.0, 1.0, 1.0);' +
-    '   vec3 light_pos = vec3(0.0, 10.0, 5.0);' +
+    '   vec3 light_pos = vec3(15.0, 15.0, 15.0);' +
     '' +
     '   float ambient_str = 0.2;' +
     '   vec3 ambient = ambient_str * light_color;' +
@@ -1313,7 +1315,7 @@ var cube_f_shader =
     '   vec3 diffuse = diff * light_color;' +
     '' +
     '   vec3 result = (ambient + diffuse) * cube_color;' +
-    '   gl_FragColor = vec4(result, 1.0);' +
+    '   gl_FragColor = vec4(result * 0.9, 1.0);' +
     '}';
 
 var cage_v_shader =
